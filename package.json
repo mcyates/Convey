@@ -1,22 +1,25 @@
 {
-  "name": "convey",
-  "version": "1.0.0",
-  "description": "A light web framework for Node.js",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/M-C-Yates/Convey.git"
-  },
-  "keywords": [
-    "node"
-  ],
-  "author": "Matthew Yates",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/M-C-Yates/Convey/issues"
-  },
-  "homepage": "https://github.com/M-C-Yates/Convey#readme"
+	"name": "convey",
+	"version": "1.0.0",
+	"description": "A lightweight web framework Built with typescript",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/M-C-Yates/Convey.git"
+	},
+	"keywords": [
+		"framework"
+	],
+	"author": "Matthew Yates",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/M-C-Yates/Convey/issues"
+	},
+	"homepage": "https://github.com/M-C-Yates/Convey#readme",
+	"devDependencies": {
+		"parcel-bundler": "^1.12.3"
+	}
 }
