@@ -1,59 +1,21 @@
-import axios, { AxiosResponse } from 'axios';
-
-type Callback = () => void;
-
-interface UserProps {
+import { Model } from './Model';
+import { Eventing } from './Eventing';
+import { Attributes } from './Attributes';
+import { ApiSync } from './ApiSync';
+export interface UserProps {
 	name?: string;
 	age?: number;
 	id?: number;
 }
 
-export class User {
-	events: { [key: string]: Callback[] } = {};
-
-	constructor(private data: UserProps) {}
-
-	get(propName: string): string | number {
-		// @ts-ignore
-		return this.data[propName];
-	}
-
-	set(update: UserProps): void {
-		this.data = { ...this.data, ...update };
-	}
-
-	on(eventName: string, callback: Callback): void {
-		const handlers = this.events[eventName] || [];
-		handlers.push(callback);
-		this.events[eventName] = handlers;
-	}
-
-	trigger(eventName: string): void {
-		const handlers = this.events[eventName];
-		if (!handlers || handlers.length === 0) {
-			return;
-		}
-		handlers.forEach((callback) => {
-			callback();
-		});
-	}
-
-	fetch(): void {
-		axios.get(`http://localhost:3000/users/${this.get('id')}`).then(
-			(response: AxiosResponse): void => {
-				this.set({ ...response.data });
-			}
+export class User extends Model<UserProps> {
+	static buildUser(attrs: UserProps) {
+		return new User(
+			new Attributes<UserProps>(attrs),
+			new Eventing(),
+			new ApiSync<UserProps>('http://localhost:3000')
 		);
 	}
-
-	save(): void {
-		const id = this.get('id');
-		if (this.get('id')) {
-			//put
-			axios.put(`http://localhost:3000/users/${id}`, this.data);
-		} else {
-			//post
-			axios.post('http://localhost:3000/users', this.data);
-		}
-	}
 }
+
+export default User;
