@@ -1,0 +1,22 @@
+{
+  "name": "convey",
+  "version": "1.0.0",
+  "description": "A light web framework for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M-C-Yates/Convey.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Matthew Yates",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/M-C-Yates/Convey/issues"
+  },
+  "homepage": "https://github.com/M-C-Yates/Convey#readme"
+}
