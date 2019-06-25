@@ -1,8 +1,15 @@
 import { User } from './models/User';
 
 const user = new User({ name: 'ted', age: 20 });
-console.log(user.get('name'));
-console.log(user.get('age'));
-user.set({});
-console.log(user.get('name'));
-console.log(user.get('age'));
+user.on('change', () => {
+	console.log('changed1!');
+});
+user.on('change', () => {
+	console.log('changed2!');
+});
+user.on('deleted', () => {
+	console.log('deleted!');
+});
+console.log(user.events);
+// user.trigger('change');
+user.trigger('deleted');
